@@ -5,6 +5,12 @@ const getPeopleId = async (id) => {
     return data
 };
 
+const getPlanetName = async (url) => {
+    const data = await req.genericRequest(url, 'GET', null, true);
+    return data
+};
+
 module.exports = {
-    getPeopleId
+    getPeopleId,
+    getPlanetName
 }

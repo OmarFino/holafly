@@ -1,10 +1,15 @@
 const modelPeople = require('../model/peopleModel');
-const {HttpStatus, Message} = require('../../util/constants')
+const {HttpStatus, Message} = require('../../util/constants');
+const {extractPlanetInfo, extractPeopleInfo} = require('../mapper/peopleMapper');
 
 const getPeopleId = async (req, res) => {
     try {
       const { id } = req.params;
-      const data = await modelPeople.getPeopleId(id);
+      const dataPeople = await modelPeople.getPeopleId(id); 
+      const people = extractPeopleInfo(dataPeople);
+      const dataPlanet = await modelPeople.getPlanetName(people.homeworld);
+      const planet = extractPlanetInfo(dataPlanet)
+      const data = {...people,...planet} 
       if (data != '') {
         res.status(HttpStatus.OK).send(data)
       } else {
