@@ -7,7 +7,7 @@ class AbstractPeople {
     }
 
     async init(){
-        throw new Error('To be implemented');
+        
     }
 
     getId() {

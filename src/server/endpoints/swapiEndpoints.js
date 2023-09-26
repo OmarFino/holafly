@@ -1,3 +1,5 @@
+const controllerPeople = require('../controller/peopleController');
+const controllerPlanet = require('../controller/planetController');
 
 const _isWookieeFormat = (req) => {
     if(req.query.format && req.query.format == 'wookiee'){
@@ -14,13 +16,9 @@ const applySwapiEndpoints = (server, app) => {
         res.send(data);
     });
 
-    server.get('/hfswapi/getPeople/:id', async (req, res) => {
-        res.sendStatus(501);
-    });
+    server.get('/hfswapi/getPeople/:id', controllerPeople.getPeopleId);
 
-    server.get('/hfswapi/getPlanet/:id', async (req, res) => {
-        res.sendStatus(501);
-    });
+    server.get('/hfswapi/getPlanet/:id', controllerPlanet.getPlanetId);
 
     server.get('/hfswapi/getWeightOnPlanetRandom', async (req, res) => {
         res.sendStatus(501);
