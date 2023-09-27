@@ -1,6 +1,6 @@
 const modelPlanet = require('../model/planetModel');
 const {HttpStatus, Message} = require('../../util/constants')
-const extractPlanetInfo = require('../mapper/planetMapper');
+const {extractPlanetInfo} = require('../mapper/planetMapper');
 
 const getPlanetId = async (req, res) => {
     try {

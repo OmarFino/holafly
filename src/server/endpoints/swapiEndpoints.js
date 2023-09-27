@@ -20,9 +20,7 @@ const applySwapiEndpoints = (server, app) => {
 
     server.get('/hfswapi/getPlanet/:id', controllerPlanet.getPlanetId);
 
-    server.get('/hfswapi/getWeightOnPlanetRandom', async (req, res) => {
-        res.sendStatus(501);
-    });
+    server.get('/hfswapi/getWeightOnPlanetRandom', controllerPeople.getPeopleWeightId);
 
     server.get('/hfswapi/getLogs',async (req, res) => {
         const data = await app.db.logging.findAll();

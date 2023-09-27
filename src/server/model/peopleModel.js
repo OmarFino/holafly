@@ -1,12 +1,13 @@
 const req = require('../../app/swapiFunctions/index')
+const {Url, Method} = require('../../util/constants')
 
 const getPeopleId = async (id) => {
-    const data = await req.genericRequest(`https://swapi.dev/api/people/${id}`, 'GET', null, true);
+    const data = await req.genericRequest(`${Url.URL_PEOPLE_ID}${id}`, Method.MET, null, true);
     return data
 };
 
 const getPlanetName = async (url) => {
-    const data = await req.genericRequest(url, 'GET', null, true);
+    const data = await req.genericRequest(url, Method.MET, null, true);
     return data
 };
 

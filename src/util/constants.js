@@ -52,11 +52,29 @@
 const Message = {
     REPOSITORY_ERROR : 'Internal server Error',
     BAD_REQUEST : 'Bad Request Error',
+    INCORRECT_WEIGHT_REQUEST:'You cannot calculate the weight of your own home planet.',
     NO_DATA:'No data found'
 
 }
 
+const Mapper = {
+    UNKNOWN: 'unknown',
+    WEIGHT: 'weight'
+}
+
+const Url = {
+    URL_PEOPLE_ID: 'https://swapi.dev/api/people/',
+    URL_PLANET_ID: 'https://swapi.dev/api/planets/'
+}
+
+const Method = {
+    MET: 'GET'
+}
+
 module.exports = {
     HttpStatus,
-    Message
+    Message,
+    Mapper,
+    Url,
+    Method
 }
