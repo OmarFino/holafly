@@ -1,5 +1,6 @@
 const controllerPeople = require('../controller/peopleController');
 const controllerPlanet = require('../controller/planetController');
+const controllerLogs = require('../controller/logController')
 
 const _isWookieeFormat = (req) => {
     if(req.query.format && req.query.format == 'wookiee'){
@@ -22,10 +23,7 @@ const applySwapiEndpoints = (server, app) => {
 
     server.get('/hfswapi/getWeightOnPlanetRandom', controllerPeople.getPeopleWeightId);
 
-    server.get('/hfswapi/getLogs',async (req, res) => {
-        const data = await app.db.logging.findAll();
-        res.send(data);
-    });
+    server.get('/hfswapi/getLogs',controllerLogs.getAllLogs);
 
 }
 
